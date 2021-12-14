@@ -3,12 +3,12 @@
 	"file": "style.css",
 	"sources": [
 		"style.scss",
-		"../../tmp/jekyll-remote-theme-20211214-57-1k7cqwq/_sass/minima/skins/dark.scss",
-		"../../tmp/jekyll-remote-theme-20211214-57-1k7cqwq/_sass/minima/initialize.scss",
-		"../../tmp/jekyll-remote-theme-20211214-57-1k7cqwq/_sass/minima/custom-variables.scss",
-		"../../tmp/jekyll-remote-theme-20211214-57-1k7cqwq/_sass/minima/_base.scss",
-		"../../tmp/jekyll-remote-theme-20211214-57-1k7cqwq/_sass/minima/_layout.scss",
-		"../../tmp/jekyll-remote-theme-20211214-57-1k7cqwq/_sass/minima/custom-styles.scss"
+		"../../tmp/jekyll-remote-theme-20211214-56-q02w0x/_sass/minima/skins/dark.scss",
+		"../../tmp/jekyll-remote-theme-20211214-56-q02w0x/_sass/minima/initialize.scss",
+		"../../tmp/jekyll-remote-theme-20211214-56-q02w0x/_sass/minima/custom-variables.scss",
+		"../../tmp/jekyll-remote-theme-20211214-56-q02w0x/_sass/minima/_base.scss",
+		"../../tmp/jekyll-remote-theme-20211214-56-q02w0x/_sass/minima/_layout.scss",
+		"../../tmp/jekyll-remote-theme-20211214-56-q02w0x/_sass/minima/custom-styles.scss"
 	],
 	"sourcesContent": [
 		"@import\n  \"minima/skins/dark\",\n  \"minima/initialize\";\n",
