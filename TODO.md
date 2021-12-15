@@ -1,4 +1,7 @@
-### Next Steps
+### Git Repo to Generate Android WebView Java App - Hopefully can be built with just `apktool` and don't need full blown AndroidStudio
+- https://github.com/raelmax/android-webview
+
+### Next Steps - MOST DONE AS OF 14Dec2021!
 
 - Create new `vfwpost2782/vfwpost2782-web-datastore.git` **PRIVATE** Repository
 - Move **REAL** `_data/lifemembers.csv` under the new private repo which only the account owner and myself have access to
