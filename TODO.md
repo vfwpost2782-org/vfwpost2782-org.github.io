@@ -1,3 +1,6 @@
+### Kick Ass Pure CSS Card stack
+- [https://github.com/fireship-io/stacked-card-list/tree/master/public](https://github.com/fireship-io/stacked-card-list/tree/master/public)
+
 ### Git Repo to Generate Android WebView Java App - Hopefully can be built with just `apktool` and don't need full blown AndroidStudio
 - https://github.com/raelmax/android-webview
 
