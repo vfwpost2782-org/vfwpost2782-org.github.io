@@ -1,3 +1,8 @@
+### 4Jan2022 - NOTE - HTML Data Attributes
+- [https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)
+
+----
+
 ### Kick Ass Pure CSS Card stack
 - [https://github.com/fireship-io/stacked-card-list/tree/master/public](https://github.com/fireship-io/stacked-card-list/tree/master/public)
 
