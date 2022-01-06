@@ -1,6 +1,10 @@
 ### 4Jan2022 - NOTE - HTML Data Attributes
 - [https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)
 
+### 4Jan2022 - NOTE - A2HS (Add to Home Screen)
+- **MDN Blog Post:** [https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Add_to_home_screen](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Add_to_home_screen)
+- **Blog Post Demo Git Repo (Foxes):** [https://github.com/mdn/pwa-examples/tree/master/a2hs](https://github.com/mdn/pwa-examples/tree/master/a2hs)
+
 ----
 
 ### Kick Ass Pure CSS Card stack
