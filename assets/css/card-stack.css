@@ -12,7 +12,7 @@ a { text-decoration: none; }
 
 .card-list::-webkit-scrollbar-track { background: linear-gradient(90deg, #201c29, #201c29 1px, #17141d 0, #17141d); }
 
-.card { height: 675px; width: 450px; min-width: 400px; padding: 1rem; border-radius: 16px; background: #49268f; box-shadow: -1rem 0 3rem #000; display: inline-block; flex-direction: row; transition: 0.2s; margin: 0; scroll-snap-align: start; clear: both; position: relative; opacity: 0.9; }
+.card { height: 675px; width: 450px; min-width: 400px; padding: 1rem; border-radius: 16px; background: #49268f; box-shadow: -1rem 0 3rem #000; display: inline-block; flex-direction: row; transition: 0.2s; margin: 0; scroll-snap-align: start; clear: both; position: relative; opacity: 1; }
 
 /* animation: animate 15s linear infinite; animation-delay: calc(3s * var(--delay)); } .outer:hover .card{ animation-play-state: paused; }  .card:last-child { animation-delay: calc(-3s * var(--delay)); } @keyframes animate { 0% { opacity: 0; transform: translateX(100%) scale(0.5); } 5%, 20% { opacity: 0.4; transform: translateX(100%) scale(0.7); } 25%, 40% { opacity: 1; pointer-events: auto; transform: translateX(0%) scale(1); } 45%, 60% { opacity: 0.4; transform: translateX(-100%) scale(0.7); } 65%, 100% { opacity: 0; transform: translateX(-100%) scale(0.5); } } */
 .card:focus-within ~ .card, .card:hover ~ .card { transform: translateX(130px); }
