@@ -6,7 +6,7 @@ a { text-decoration: none; }
 
 .card-list { position: relative; width: 100%; margin-top: 145px; display: flex; padding: 3rem; overflow-x: hidden; /* for our fade effect */ transition: opacity 0.4s; }
 
-.fade-cards { /* to fade out */ opacity: 0; }
+.fade-card-list { /* to fade out */ opacity: 0; }
 
 .card-list::-webkit-scrollbar { width: 10px; height: 10px; }
 
