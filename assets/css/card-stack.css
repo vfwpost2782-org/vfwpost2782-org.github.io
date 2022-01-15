@@ -4,7 +4,7 @@ body { padding: 0; margin: 0; background-color: #17141d; color: white; font-fami
 
 a { text-decoration: none; }
 
-.card-list { position: relative; width: 100%; margin-top: 145px; display: flex; padding: 3rem; overflow-x: hidden; /* for our fade effect */ transition: opacity 0.4s; /* for paginate */ list-style: none; }
+.card-list { position: relative; width: 100%; margin-top: 145px; display: flex; padding: 3rem; overflow-x: hidden; /* for our fade effect */ transition: all 0.5s ease-out; /* for paginate */ list-style: none; }
 
 .fade-card-list { /* to fade out */ opacity: 0; }
 

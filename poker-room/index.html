@@ -74,9 +74,6 @@
 
       function autopage() {
         window.console && console.log("autopage...");
-        $('article').each(function (index, element) {
-          window.console && console.log(element.className + ' ' + element.tagName + ' ' + element.innerHTML);
-        });
         var curpg = container.pagination('getSelectedPageNum');
         var totpg = container.pagination('getTotalPage');
         window.console && console.log(curpg);
@@ -151,10 +148,10 @@
         callback: function (response, pagination) {
           window.console && console.log(response, pagination);
 
-          var dataHtml = "<center><section class='card-list'><ul>";
+          var dataHtml = "<center><section class='card-list'><ul class='card-list'>";
 
           $.each(response, function (index, item) {
-            dataHtml += `<article class='card'>` + item + `</article>`;
+            dataHtml += `<li><article class='card'>` + item + `</article></li>`;
           });
 
           dataHtml += "</ul></section></center>";
@@ -170,7 +167,7 @@
         //  nIntervId = setInterval(autopage, 5000);
       //  }
 
-        let delay = 20000;
+        let delay = 8000;
         let intervalTimerId = setTimeout(function request() {
           autopage();
           intervalTimerId = setTimeout(request, delay);
