@@ -11,9 +11,12 @@
 
 var config = {
     type: Phaser.AUTO,
-    width: 800,
-    height: 600,
-    parent: 'phaser-example',
+    scale: {
+        parent: 'phaser-example',
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH,
+    },
+    autoRound: true,
     dom: {
         createContainer: true
     },
@@ -25,15 +28,29 @@ var config = {
 
 var element;
 
+var background;
+
 var game = new Phaser.Game(config);
 
 function preload() {
     this.load.html('nameform', '/assets/js/bootstrap.html');
-    this.load.image('pic', '/assets/flag_table_background.jpg');
+    this.load.image('bg', '/assets/flag_table_background.jpg');
 }
 
 function create() {
-    this.add.image(400, 300, 'pic');
+
+    /*
+        setting camera bound to the same as the world bounds will keep the camera from showing
+        blank canvas outside of the background image/
+    */
+    this.cameras.main.setBounds(0, 0, 4000, 4000);
+    //this.physics.world.setBounds(0, 0, 4000, 4000);
+    /*
+        background images is 500x500 world is 4000x4000
+        This image does not scael well, another option
+        would be to display it not scaled 4 times 0,0 0,500 500,0 500,500
+    */
+    this.add.image(0, 0, 'bg').setOrigin(0).setScale(2);
 
     var text = this.add.text(10, 10, 'Please login to play', { color: 'white', fontFamily: 'Arial', fontSize: '32px ' });
 
@@ -80,8 +97,45 @@ function create() {
         else {
             console.log(event.target.id);
                             
-            //  Flash the prompt
-            this.scene.tweens.add({ targets: element, alpha: 0.1, duration: 200, ease: 'Power3', yoyo: true });
+            // different actions to do according to element "id" property
+            switch(event.target.id) {
+                case "right":
+                    this.scene.tweens.add({
+                        targets: element,
+                        x: game.config.width - 150,
+                        y: game.config.height / 2,
+                        duration: 200,
+                        ease: 'Power3'
+                    });
+                    break;
+                case "down":
+                    this.scene.tweens.add({
+                        targets: element,
+                        x: game.config.width / 2,
+                        y: game.config.height - 50,
+                        duration: 200,
+                        ease: 'Power3'
+                    });
+                    break;
+                case "left":
+                    this.scene.tweens.add({
+                        targets: element,
+                        x: 150,
+                        y: game.config.height / 2,
+                        duration: 200,
+                        ease: 'Power3'
+                    });
+                    break;
+                case "center":
+                    this.scene.tweens.add({
+                        targets: element,
+                        x: game.config.width / 2,
+                        y: game.config.height / 2,
+                        duration: 200,
+                        ease: 'Power3'
+                    });
+                    break;
+            }
         }
 
     });
