@@ -1,5 +1,25 @@
 /*
 
+// OTHER OPTIONS FIRST, BEFORE PHASER!!
+
+// These first two are really nice, because they are best suited to SPA / PWA / SSG format, and use main / article / section elements to denote pagination (slides)
+
+// Reveal.js - web presentation (slides) framework
+// See: https://revealjs.com/auto-slide/
+
+// Webslides.js - web presentation (slides) framework
+// See: https://webslides.tv/demos/classes#slide=1
+
+/* ------------- */
+
+// This one would be more effort, but is definitely interesting...
+
+// Marp / Marpit - Markdown web presentation (slides) framework
+// See: https://marp.app/
+// See: https://marpit.marp.app/usage
+
+/* ------------- */
+
 // Use the Phaser3 GameDev Library with DOMElements!
 // Src:  https://phaser.io/tutorials/making-your-first-phaser-3-game/part1
 // Docs: https://newdocs.phaser.io/docs/3.55.2/Phaser.GameObjects.DOMElement
@@ -7,7 +27,6 @@
 
 // Basically, idea will be to preload an array of DOMElement objects using our Life Members data, then iteratively display, animate, destroy them as they cross
 // our "world boundaries"! This should allow you to do what you have been trying to do (and MUCH more) with simple CSS transitions, etc.
-*/
 
 var config = {
     type: Phaser.AUTO,
