@@ -127,7 +127,8 @@ var game = new Phaser.Game(config);
 
 function preload() {
     // this.load.html('nameform', '/assets/js/bootstrap.html');
-    this.load.image('bg', '/assets/flag_table_background.jpg');
+    // this.load.image('bg', '/assets/flag_table_background.jpg');
+    this.load.image('bg', '/assets/usa_flag_vector.svg');
 
     // create "card deck"
     cardDeck = buildCardDeck();
@@ -184,7 +185,8 @@ element3.setDepth(2).setScale(0.7);
         yoyo: true
     });
 
-    this.add.image(0, 0, 'bg').setOrigin(0).setScale(2);
+    // this.add.image(0, 0, 'bg').setOrigin(0).setScale(2);
+    this.add.image(0, 0, 'bg').setOrigin(0).setScale(1.2);
 
     /*
     // import card deck 
