@@ -40,11 +40,11 @@ function buildCardDeck() {
             var memberName = membersArray[i].membername.trim().toUpperCase();
             var memberBranch = membersArray[i].memberbranch.replace(/\s+/g, '').toLowerCase();
             var cardHtml = `<div class="container-fluid">
-                            
-                            <div class="col-md shadow-sm p-4 bg-danger mx-auto">
-                                <div class="card shadow-md bg-primary mx-auto" style="min-width: 250px; max-width: 250px;">
+                            <div class="row">
+                            <div class="col-sm shadow-sm p-4 bg-danger">
+                                <div class="card shadow bg-secondary">
                                         <img
-                                    class="card-img-top rounded-circle mx-auto"
+                                    class="card-img-top rounded-circle"
                                     `;
             if (validBranchNames.includes(memberBranch)) {
                 cardHtml += 'src="/assets/insignia_images/' + memberBranch + '/branch_seal.png"';
@@ -52,31 +52,41 @@ function buildCardDeck() {
                 cardHtml += 'src="/assets/insignia_images/vfwdefault.png"';
             };
             cardHtml +=`
-                alt="Branch Seal"
-                style="width: 150px;"
+                alt="Move center"
+                style="width: 100%"
             />
             <div class="card-body">
                 <table class="table table-dark table-striped">
                 <tr>
                     <th>
-                    <strong> Name: </strong>
+                    <strong
+                        ><a class="dropdown-item" href="#" id="center" name="center"
+                        >Move center</a
+                        ></strong
+                    >
                     </th>
                 </tr>
                 <tr>
-                    <td id="card-${i}-member-name">` + memberName + `</td>
+                    <td id="card-${i}-member-name">
+                    <a class="dropdown-item" href="#" id="up">` + memberName + `</a>
+                    </td>
                 </tr>
                 <tr>
                     <th><strong> Branch: </strong></th>
                 </tr>
                 <tr>
-                    <td id="card-${i}-member-branch">` + memberBranch.toUpperCase() + `</td>
+                    <td id="card-${i}-member-branch">
+                    <a class="dropdown-item" href="#" id="down" name="down"
+                        >` + memberBranch + `</a
+                    >
+                    </td>
                 </tr>
                 <tr>
                     <th><strong> Grade / Rank: </strong></th>
                 </tr>
                 <tr>
                     <td id="card-${i}-member-rank">
-                    UNKNOWN...
+                    <a class="dropdown-item" href="#" id="left">Move left</a>
                     </td>
                 </tr>
                 <tr>
@@ -84,12 +94,12 @@ function buildCardDeck() {
                 </tr>
                 <tr>
                     <td id="card-${i}-member-status">
-                    UNKNOWN...
+                    <a class="dropdown-item" href="#" id="right">Move right</a>
                     </td>
                 </tr>
                 </table>
             </div>
-        
+        </div>
     </div>
     </div>
 </div>`;
@@ -109,7 +119,7 @@ var config = {
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH,
     },
-    // autoRound: true,
+    autoRound: true,
     dom: {
         createContainer: true
     },
@@ -119,22 +129,22 @@ var config = {
     }
 };
 
-var cardDeck;
+var element;
 
 var background;
 
 var game = new Phaser.Game(config);
 
 function preload() {
-    // this.load.html('nameform', '/assets/js/bootstrap.html');
+    this.load.html('nameform', '/assets/js/bootstrap.html');
     this.load.image('bg', '/assets/flag_table_background.jpg');
 
     // create "card deck"
-    cardDeck = buildCardDeck();
-/*     for (var i = 0; i < cardDeck.length; i++) {
+    var cardDeck = buildCardDeck();
+    for (var i = 0; i < cardDeck.length; i++) {
         console.log(cardDeck[i]);
-    }; */
-};
+    }
+}
 
 function create() {
 
@@ -142,138 +152,107 @@ function create() {
         setting camera bound to the same as the world bounds will keep the camera from showing
         blank canvas outside of the background image/
     */
-    //this.cameras.main.setBounds(0, 0, 4000, 4000);
+    this.cameras.main.setBounds(0, 0, 4000, 4000);
     //this.physics.world.setBounds(0, 0, 4000, 4000);
     /*
         background images is 500x500 world is 4000x4000
-        This image does not scale well, another option
+        This image does not scael well, another option
         would be to display it not scaled 4 times 0,0 0,500 500,0 500,500
     */
-    // this.add.image(0, 0, 'bg').setOrigin(0).setScale(2);
-
-    // var text = this.add.text(10, 10, 'Please login to play', { color: 'white', fontFamily: 'Arial', fontSize: '32px ' });
-
-var div0 = document.createElement('div');
-var div1 = document.createElement('div');
-var div2 = document.createElement('div');
-var div3 = document.createElement('div');
-
-div0.innerHTML = cardDeck[0];
-div1.innerHTML = cardDeck[1];
-div2.innerHTML = cardDeck[2];
-div3.innerHTML = cardDeck[3];
-
-var element0 = this.add.dom(150, 300, div0);
-var element1 = this.add.dom(400, 300, div1);
-var element2 = this.add.dom(650, 300, div2);
-var element3 = this.add.dom(900, 300, div3);
-
-element0.setDepth(2).setScale(0.7);
-element1.setDepth(2).setScale(0.7);
-element2.setDepth(2).setScale(0.7);
-element3.setDepth(2).setScale(0.7);
-
-    this.tweens.add({
-        targets: [ element0, element1, element2, element3 ],
-        y: 600,
-        angle: 200,
-        duration: 3000,
-        scaleX: 2,
-        ease: 'Sine.easeInOut',
-        //loop: -1,
-        yoyo: true
-    });
-
     this.add.image(0, 0, 'bg').setOrigin(0).setScale(2);
 
-    /*
-    // import card deck 
-    var x = 100;
-    var y = 100;
-    for (var i=0; i<10; i++) {
-        window['element'+i] = this.add.dom(x, y).createFromHTML(cardDeck[i]);
-        window['element'+i].setPerspective(800);
-        window['element'+i].setScale(0.7);
-        x += 4;
-        y += 4;
-    };
-        element.addListener('click');
-        element.on('click', function (event) {
-            if (event.target.id === 'up') {
-                var inputUsername = this.getChildByID('center');
-                var inputPassword = this.getChildByID('down');
-                console.log(inputUsername);
-                console.log(inputPassword);
-                //  Have they entered anything?
-                if (inputUsername.innerText !== '' && inputPassword.innerText !== '') {
-                    //  Turn off the click events
-                    // this.removeListener('click');
-                    //  Tween the login form out
-                    this.scene.tweens.add({ targets: element.rotate3d, x: 1, w: 90, duration: 3000, ease: 'Power3', hold: 3000, yoyo: true });
-                    this.scene.tweens.add({
-                        targets: element, scaleX: 2, scaleY: 2, y: 700, duration: 3000, ease: 'Power3', hold: 3000, yoyo: true,
-                        onComplete: function () {
-                            element.setVisible(true);
-                        }
-                    });
-                    //  Populate the text with whatever they typed in as the username!
-                    text.setText('Welcome ' + inputUsername.innerText + ' ' + inputPassword.innerText);
-                }
-                else {
-                    //  Flash the prompt
-                    this.scene.tweens.add({ targets: text, alpha: 0.1, duration: 200, ease: 'Power3', yoyo: true });
-                }
+    var text = this.add.text(10, 10, 'Please login to play', { color: 'white', fontFamily: 'Arial', fontSize: '32px ' });
+
+    var element = this.add.dom(400, 600).createFromCache('nameform');
+
+    element.setPerspective(800);
+
+    element.setScale(0.7);
+
+    element.addListener('click');
+
+    element.on('click', function (event) {
+
+        if (event.target.id === 'up') {
+            var inputUsername = this.getChildByID('center');
+            var inputPassword = this.getChildByID('down');
+
+            console.log(inputUsername);
+            console.log(inputPassword);
+
+            //  Have they entered anything?
+            if (inputUsername.innerText !== '' && inputPassword.innerText !== '') {
+                //  Turn off the click events
+                // this.removeListener('click');
+
+                //  Tween the login form out
+                this.scene.tweens.add({ targets: element.rotate3d, x: 1, w: 90, duration: 3000, ease: 'Power3', hold: 3000, yoyo: true });
+
+                this.scene.tweens.add({
+                    targets: element, scaleX: 2, scaleY: 2, y: 700, duration: 3000, ease: 'Power3', hold: 3000, yoyo: true,
+                    onComplete: function () {
+                        element.setVisible(true);
+                    }
+                });
+
+                //  Populate the text with whatever they typed in as the username!
+                text.setText('Welcome ' + inputUsername.innerText + ' ' + inputPassword.innerText);
             }
             else {
-                console.log(event.target.id);
-                // different actions to do according to element "id" property
-                switch(event.target.id) {
-                    case "right":
-                        this.scene.tweens.add({
-                            targets: element,
-                            x: game.config.width - 150,
-                            y: game.config.height / 2,
-                            duration: 200,
-                            ease: 'Power3'
-                        });
-                        break;
-                    case "down":
-                        this.scene.tweens.add({
-                            targets: element,
-                            x: game.config.width / 2,
-                            y: game.config.height - 50,
-                            duration: 200,
-                            ease: 'Power3'
-                        });
-                        break;
-                    case "left":
-                        this.scene.tweens.add({
-                            targets: element,
-                            x: 150,
-                            y: game.config.height / 2,
-                            duration: 200,
-                            ease: 'Power3'
-                        });
-                        break;
-                    case "center":
-                        this.scene.tweens.add({
-                            targets: element,
-                            x: game.config.width / 2,
-                            y: game.config.height / 2,
-                            duration: 200,
-                            ease: 'Power3'
-                        });
-                        break;
-                };
-            };
-        }); 
-        this.tweens.add({
-            targets: element,
-            y: 150,
-            duration: 3000,
-            ease: 'Power3'
-        });
-        
-    };
-    */
-};
+                //  Flash the prompt
+                this.scene.tweens.add({ targets: text, alpha: 0.1, duration: 200, ease: 'Power3', yoyo: true });
+            }
+        }
+        else {
+            console.log(event.target.id);
+                            
+            // different actions to do according to element "id" property
+            switch(event.target.id) {
+                case "right":
+                    this.scene.tweens.add({
+                        targets: element,
+                        x: game.config.width - 150,
+                        y: game.config.height / 2,
+                        duration: 200,
+                        ease: 'Power3'
+                    });
+                    break;
+                case "down":
+                    this.scene.tweens.add({
+                        targets: element,
+                        x: game.config.width / 2,
+                        y: game.config.height - 50,
+                        duration: 200,
+                        ease: 'Power3'
+                    });
+                    break;
+                case "left":
+                    this.scene.tweens.add({
+                        targets: element,
+                        x: 150,
+                        y: game.config.height / 2,
+                        duration: 200,
+                        ease: 'Power3'
+                    });
+                    break;
+                case "center":
+                    this.scene.tweens.add({
+                        targets: element,
+                        x: game.config.width / 2,
+                        y: game.config.height / 2,
+                        duration: 200,
+                        ease: 'Power3'
+                    });
+                    break;
+            }
+        }
+
+    });
+
+    this.tweens.add({
+        targets: element,
+        y: 150,
+        duration: 3000,
+        ease: 'Power3'
+    });
+}
