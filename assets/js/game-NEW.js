@@ -285,3 +285,23 @@ this.config = {
 this.cardDeck = this.buildCardDeck();
 
 this.game = new Phaser.Game(this.config);
+
+var member;
+
+var tmparr;
+
+let tmparr = [...this.cardDeck];
+
+setInterval(spliceMe, 5000);
+
+function spliceMe() {
+    if (this.tmparr.length > 0){
+        this.member = this.tmparr.splice(0,4);
+    } else {
+        this.tmparr = [...this.cardDeck];
+        this.member = this.tmparr.splice(0,4);
+    };
+    for (let i=0; i<member.length; i++) {
+        console.log("idx=" + i + " " + JSON.stringify(member[i]));
+    };
+};
