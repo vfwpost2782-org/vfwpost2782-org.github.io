@@ -1,10 +1,12 @@
 /* Empty front matter tags above are required to signal to Jekyll that this file should be interpolated for Liquid Syntax */
 /* Define defaults for each variable you need to reference in static output scss */
-.header { position: fixed; left: 0; top: 0; width: 100%; background-color: #000080; color: red; text-align: center; }
+.gradient-custom { /* fallback for old browsers */ background: #6a11cb; /* Chrome 10-25, Safari 5.1-6 */ background: -webkit-linear-gradient(to left, rgba(106, 17, 203, 0.5), rgba(37, 117, 252, 0.5)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ background: linear-gradient(to left, rgba(106, 17, 203, 0.5), rgba(37, 117, 252, 0.5)); }
+
+.header { /*   position: fixed; left: 0; top: 0; width: 100%; */ background-color: #000080; color: red; text-align: center; }
 
 .backdiv { /* background-image:url("/assets/_grungy-american-flag-background.jpg"); */ background-image: url("/assets/flag_table_background.jpg"); /* opacity:0.7; */ position: fixed; top: 0; bottom: 0; right: 0; left: 0; height: 100%; width: 100%; background-repeat: no-repeat; background-size: cover; z-index: -1; }
 
-.footer { position: fixed; left: 0; bottom: 0; width: 100%; background-color: #000080; color: red; text-align: center; }
+.footer { /*   position: fixed; left: 0; bottom: 0; width: 100%; */ background-color: #000080; color: red; text-align: center; }
 
 /* table { border-spacing: 0; margin-top: 20px; bottom: 0; } tr { background-color: red; text-align: center; color: white; margin-bottom: 20px; } td { border-collapse: collapse; border-left: 10px solid #000080; border-right: 10px solid #000080; margin-right: 0px; padding: 10px; } */
 .marquee-container { position: fixed; horizontal-align: center; margin-top: 80px; bottom: 0; width: 100%; overflow: hidden; white-space: nowrap; }
